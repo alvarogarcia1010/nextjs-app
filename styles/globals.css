@@ -1,9 +1,21 @@
+:root {
+  --base-font: system-ui -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --color-primary: #0099ff;
+  --color-primary-with-transparent: #0099ff4e;
+  --color-secondary: #1c5480;
+}
+
 html,
 body {
+  background-image: 
+    radial-gradient(var(--color-primary-with-transparent) 1px, transparent 1px),
+    radial-gradient(var(--color-primary-with-transparent) 1px, transparent 1px);
+  background-position: 0 0, 25px 25px;
+  background-size: 50px 50px;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: var(--base-font);
 }
 
 a {

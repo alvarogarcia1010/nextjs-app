@@ -8,12 +8,16 @@
 }
 
 .main {
+  background: #fff;
   padding: 5rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,.3);
+  max-height: 90vh;
+  width: 450px;
 }
 
 .footer {
