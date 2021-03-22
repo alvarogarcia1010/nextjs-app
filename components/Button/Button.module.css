@@ -1,4 +1,6 @@
 .button {
+  display: flex;
+  align-items: center;
   background: var(--color-black);
   border: 0;
   cursor: pointer;
@@ -8,6 +10,11 @@
   font-weight: 800;
   padding: 10px 24px;
   transition: opacity .3s ease;
+  
+}
+
+.button svg {
+  margin-right: 8px;
 }
 
 .button:hover{
