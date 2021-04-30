@@ -5,7 +5,7 @@ import GitHub from '../components/Icons/Github'
 import { loginWithGithub, onAuthStateChanged } from '../firebase/client'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+export default function Home () {
   const [user, setUser] = useState(undefined)
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function Home() {
       })
       .catch(error => console.log(error))
   }
-  
+
   return (
     <div className={styles.container}>
       <Head>
@@ -31,7 +31,7 @@ export default function Home() {
         <img src='/logo.png' className={styles.logo} alt='logo' />
         <h1 className={styles.title}>Devter</h1>
         <h2 className={styles.subtitle}>Talk about development <br/> with developers</h2>
-        
+
         {user === null && (
           <Button onClick={handleClick}>
             <GitHub width={24} height={24} fill="#ffffff" />
@@ -41,11 +41,11 @@ export default function Home() {
 
         {user && user.avatar && (
           <div>
-            <img src={user.avatar} />
+            <img src={user.avatar} className={styles.profile} />
             <strong>{user.username}</strong>
           </div>
         )}
-        
+
       </main>
     </div>
   )

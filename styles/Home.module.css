@@ -126,6 +126,10 @@
   font-size: 16px;
 }
 
+.profile {
+  width: 6em;
+}
+
 @media (min-width: 520px) {
   .main {
     max-height: 90vh;
