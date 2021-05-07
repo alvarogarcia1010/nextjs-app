@@ -1,24 +1,24 @@
-import Head from 'next/head'
-import { useState, useEffect } from 'react'
-import Button from '../components/Button/Button'
-import GitHub from '../components/Icons/Github'
-import { loginWithGithub, onAuthStateChanged } from '../firebase/client'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import { useState, useEffect } from "react";
+import Button from "../components/Button/Button";
+import GitHub from "../components/Icons/Github";
+import { loginWithGithub, onAuthStateChanged } from "../firebase/client";
+import styles from "../styles/Home.module.css";
 
-export default function Home () {
-  const [user, setUser] = useState(undefined)
+export default function Home() {
+  const [user, setUser] = useState(undefined);
 
   useEffect(() => {
-    onAuthStateChanged(setUser)
-  }, [])
+    onAuthStateChanged(setUser);
+  }, []);
 
   const handleClick = () => {
     loginWithGithub()
-      .then(user => {
-        setUser(user)
+      .then((user) => {
+        setUser(user);
       })
-      .catch(error => console.log(error))
-  }
+      .catch((error) => console.log(error));
+  };
 
   return (
     <div className={styles.container}>
@@ -28,9 +28,11 @@ export default function Home () {
       </Head>
 
       <main className={styles.main}>
-        <img src='/logo.png' className={styles.logo} alt='logo' />
+        <img src="/logo.png" className={styles.logo} alt="logo" />
         <h1 className={styles.title}>Devter</h1>
-        <h2 className={styles.subtitle}>Talk about development <br/> with developers</h2>
+        <h2 className={styles.subtitle}>
+          Talk about development <br /> with developers
+        </h2>
 
         {user === null && (
           <Button onClick={handleClick}>
@@ -45,8 +47,7 @@ export default function Home () {
             <strong>{user.username}</strong>
           </div>
         )}
-
       </main>
     </div>
-  )
+  );
 }

@@ -1,4 +1,4 @@
-import styles from './Button.module.css'
+import styles from "./Button.module.css";
 
 const Button = ({ children, onClick }) => {
   return (
@@ -7,7 +7,7 @@ const Button = ({ children, onClick }) => {
         {children}
       </button>
     </>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;
