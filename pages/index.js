@@ -1,9 +1,9 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
-import Button from "../components/Button/Button";
-import GitHub from "../components/Icons/Github";
-import { loginWithGithub, onAuthStateChanged } from "../firebase/client";
-import styles from "../styles/Home.module.css";
+import Button from "components/Button/Button";
+import GitHub from "components/Icons/Github";
+import { loginWithGithub, onAuthStateChanged } from "firebase/client";
+import styles from "styles/Home.module.css";
 
 export default function Home() {
   const [user, setUser] = useState(undefined);
