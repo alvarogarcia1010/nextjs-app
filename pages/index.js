@@ -1,10 +1,24 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import { useState, useEffect } from "react";
+import Button from "components/Button/Button";
+import GitHub from "components/Icons/Github";
+import { loginWithGithub, onAuthStateChanged } from "firebase/client";
+import styles from "styles/Home.module.css";
 
 export default function Home() {
-  const router = useRouter()
+  const [user, setUser] = useState(undefined);
+
+  useEffect(() => {
+    onAuthStateChanged(setUser);
+  }, []);
+
+  const handleClick = () => {
+    loginWithGithub()
+      .then((user) => {
+        setUser(user);
+      })
+      .catch((error) => console.log(error));
+  };
 
   return (
     <div className={styles.container}>
@@ -14,19 +28,26 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          <a href="https://nextjs.org">Devter</a>
-          <nav>
-            <Link href="/timeline"><a>Timeline</a></Link>
+        <img src="/logo.png" className={styles.logo} alt="logo" />
+        <h1 className={styles.title}>Devter</h1>
+        <h2 className={styles.subtitle}>
+          Talk about development <br /> with developers
+        </h2>
 
-          </nav>
-        </h1>
+        {user === null && (
+          <Button onClick={handleClick}>
+            <GitHub width={24} height={24} fill="#ffffff" />
+            Login with GitHub
+          </Button>
+        )}
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+        {user && user.avatar && (
+          <div>
+            <img src={user.avatar} className={styles.profile} />
+            <strong>{user.username}</strong>
+          </div>
+        )}
       </main>
     </div>
-  )
+  );
 }

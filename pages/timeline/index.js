@@ -11,8 +11,8 @@ const Timeline = ({ username}) => {
       <h1>This is the timeline of {username}</h1>
       <Link href="/"><a>Go home</a></Link>
     </div>
-  )
-}
+  );
+};
 
 Timeline.getInitialProps = () => {
   return fetch('http://localhost:3000/api/hello')
