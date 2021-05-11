@@ -1,4 +1,4 @@
-import firebase from "firebase";
+import firebase from "firebase/app";
 import "firebase/auth";
 
 const firebaseConfig = {
@@ -14,6 +14,8 @@ const firebaseConfig = {
 !firebase.apps.length && firebase.initializeApp(firebaseConfig);
 
 const mapUserFromFirebaseAuthToUser = (user) => {
+  if (!user) return null;
+
   const { displayName, email, photoURL } = user;
 
   return {

@@ -1,0 +1,14 @@
+.devit {
+  border-bottom: 2px solid #eaf7ff;
+  display: flex;
+  padding: 10px 15px;
+}
+
+.devit div {
+  padding-right: 10px;
+}
+
+.devit p {
+  line-height: 1.3125;
+  margin: 0;
+}
