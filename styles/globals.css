@@ -27,6 +27,15 @@ a {
   text-decoration: none;
 }
 
+textarea,
+input {
+  font-family: var(--base-font);
+}
+
 * {
-  box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
+.p-15 {
+  padding: 15px;
 }

@@ -34,7 +34,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main className={styles.flex}>
         <img src="/logo.png" className={styles.logo} alt="logo" />
         <h1 className={styles.title}>Devter</h1>
         <h2 className={styles.subtitle}>
