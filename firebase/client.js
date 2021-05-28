@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/auth";
+import "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD2G0eqr71fKuzTZ8_cCAjfZQqr-O6jLSA",
@@ -13,15 +14,18 @@ const firebaseConfig = {
 
 !firebase.apps.length && firebase.initializeApp(firebaseConfig);
 
+const db = firebase.firestore();
+
 const mapUserFromFirebaseAuthToUser = (user) => {
   if (!user) return null;
 
-  const { displayName, email, photoURL } = user;
+  const { displayName, email, photoURL, uid } = user;
 
   return {
     avatar: photoURL,
     username: displayName,
     email,
+    uid,
   };
 };
 
@@ -35,4 +39,16 @@ export const onAuthStateChanged = (onChange) => {
 export const loginWithGithub = () => {
   const githubProvider = new firebase.auth.GithubAuthProvider();
   return firebase.auth().signInWithPopup(githubProvider);
+};
+
+export const addDevit = ({ avatar, content, userId, userName }) => {
+  return db.collection("devits").add({
+    avatar,
+    content,
+    userId,
+    userName,
+    createdAt: firebase.firestore.Timestamp.fromDate(new Date()),
+    likesCount: 0,
+    sharedCount: 0,
+  });
 };
