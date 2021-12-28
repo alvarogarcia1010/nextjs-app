@@ -1,15 +1,20 @@
 import Avatar from "components/Avatar";
 import styles from "./Devit.module.css";
 
-const Devit = ({ avatar, username, message, id }) => {
+const Devit = ({ avatar, userName, content, createdAt, id }) => {
   return (
     <article className={styles.devit}>
       <div>
-        <Avatar alt={username} src={avatar} />
+        <Avatar alt={userName} src={avatar} />
       </div>
       <section>
-        <strong>{username}</strong>
-        <p>{message}</p>
+        <header>
+          <strong>{userName}</strong>
+          <span> · </span>
+          <date className={styles.date}>{createdAt}</date>
+        </header>
+        <strong>{userName}</strong>
+        <p>{content}</p>
       </section>
     </article>
   );
