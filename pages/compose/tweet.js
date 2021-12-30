@@ -1,6 +1,7 @@
 import Button from "components/Button/Button";
 import { addDevit } from "firebase/client";
 import useUser from "hooks/useUser";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import containerStyles from "styles/Home.module.css";
@@ -46,6 +47,9 @@ const ComposeTweet = () => {
   return (
     <div className={containerStyles.container}>
       <main className={containerStyles.main}>
+        <Head>
+          <title>Devitear / Devter</title>
+        </Head>
         <form onSubmit={handleSubmit}>
           <textarea
             className={containerStyles.textarea}
