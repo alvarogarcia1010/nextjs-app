@@ -14,6 +14,17 @@
   width: 100%;
   overflow-y: auto;
   position: relative;
+  align-items: flex-start;
+  display: flex;
+}
+
+.avatarContainer {
+  padding-top: 20px;
+  padding-left: 10px;
+}
+
+.main form {
+  margin: 10px;
 }
 
 .flex {
@@ -31,6 +42,7 @@
 
 .textarea {
   border: 0;
+  border-radius: 10px;
   font-size: 21px;
   min-height: 200px;
   padding: 15px;
@@ -149,6 +161,29 @@
 
 .profile {
   width: 6em;
+}
+
+.removeImage {
+  position: relative;
+}
+
+.composeImage {
+  border-radius: 10px;
+  height: auto;
+  width: 100%;
+}
+
+.buttonClose {
+  background: rgba(0, 0, 0, 0.3);
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 24px;
+  width: 32px;
+  height: 32px;
+  top: 15px;
+  position: absolute;
+  right: 15px;
 }
 
 @media (min-width: 520px) {

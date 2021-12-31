@@ -36,6 +36,7 @@ const HomePage = () => {
                 id={devit.id}
                 key={devit.id}
                 content={devit.content}
+                img={devit.img}
                 createdAt={devit.createdAt}
                 userName={devit.userName}
                 userId={devit.userId}
