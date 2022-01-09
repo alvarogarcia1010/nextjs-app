@@ -1,6 +1,19 @@
-export default function useDateTimeFormat(timestamp) {
+const isDateTimeFormatSupported =
+  typeof Intl !== "undefined" && Intl.DateTimeFormat;
+
+export const formatDate = (timestamp, { language = "es-ES" } = {}) => {
   const date = new Date(timestamp);
-  const language = "es-ES";
+
+  if (!isDateTimeFormatSupported) {
+    const options = {
+      weekday: "short",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    };
+
+    return date.toLocaleDateString(language, options);
+  }
 
   const options = {
     year: "numeric",
@@ -12,4 +25,8 @@ export default function useDateTimeFormat(timestamp) {
   };
 
   return new Intl.DateTimeFormat(language, options).format(date);
+};
+
+export default function useDateTimeFormat(timestamp) {
+  return formatDate(timestamp, { language: "es-ES" });
 }
